@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Bootstrap Example</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<style>
+.grid {
+ display: grid;
+ grid-template-columns: 100px 100px 100px;
+ grid-template-rows: 100px 100px 100px;
+ gap:100px 100px;
+}
+</style>
+
+<body>
+
+<div id="app" class="row justify-content-center mt-2">
+<div class="grid">
+<div v-for="(style, index) in styles" :key="index" v-bind:style="{ backgroundColor:style }" ></div>
+</div>
+</div>
+
+<script>
+
+let list={"one" : "red", "two":"orange", "three" : "yellow", "four" :"green", "five": "blue", "six" : "indigo", "seven" : "violet", "eight": "grey", "nine" : "black" }
+
+const app = Vue.createApp({
+    data() {
+        return { 
+        	 styles:list
+        }
+    },
+});
+
+app.mount('#app');
+  
+</script>
+
+</body>
+</html>
